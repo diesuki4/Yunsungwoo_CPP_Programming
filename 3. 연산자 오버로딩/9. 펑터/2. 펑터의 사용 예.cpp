@@ -18,22 +18,14 @@ class AscendingRule : public SortRule
 {
 public:
     // 실제로 호출되는 오버로드 함수
-    bool operator() (int A, int B) const
-    {
-        if (A > B) return true;
-        else       return false;
-    }
+    bool operator() (int A, int B) const { return A > B; }
 };
 
 class DescendingRule : public SortRule
 {
 public:
     // 실제로 호출되는 오버로드 함수
-    bool operator() (int A, int B) const
-    {
-        if (A < B) return true;
-        else       return false;
-    }
+    bool operator() (int A, int B) const { return A < B; }
 };
 
 // 정렬 방식을 함수 객체로 정의해
