@@ -29,7 +29,7 @@ class CCC
     AAA aaa;
 
 public:
-    // 값 할당의 경우
+    // 대입의 경우
     // 선언 후, 대입을 통해 초기화가 이뤄진다.
     CCC(const AAA& aaa) { this->aaa = aaa; }
 };

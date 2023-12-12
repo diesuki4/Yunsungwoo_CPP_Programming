@@ -34,6 +34,17 @@ int main(int argc, char* argv[])
     cout << *ptr << endl;
     delete ptr;
     ptr = nullptr;
-    
+
+    int a = 3, b = 6;
+    // 레퍼런스는 초기화는 가능하지만, 대입은 불가능하다.
+    int& refA = a, & refB = b;
+
+    // a 의 공간에 b 의 값을 복사한 것 뿐이지,
+    // refB 가 참조하는 공간을 refA 도 참조하도록 대입한 것이 아니다.
+    refA = refB;
+    refB = 3;
+
+    cout << refA << " " << refB << endl;
+
     return 0;
 }
