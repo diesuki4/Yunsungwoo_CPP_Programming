@@ -27,6 +27,13 @@ public:
         return *this;
     }
 
+    // 대입 연산자는 복사 생성자처럼
+    // 시그니처가 고정되어 있지 않다는 점을 참고한다.
+    //
+    // AAA& operator= (const AAA rhs)
+    // AAA& operator= (AAA rhs)
+    // AAA& operator= (int rhs)
+
     virtual ~AAA() { delete pData; }
 };
 
