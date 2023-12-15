@@ -30,12 +30,14 @@ public:
 
     // 자신의 생명주기가 끝날 때
     // 갖고 있는 Raw 포인터를 해제한다.
+    //
+    // auto_ptr 이 이런 방식으로 동작한다.
     ~SmartPtr() { cout << "SmartPtr" << ptr->GetData() << "::소멸자" << endl; delete ptr; }
 };
 
 int main(int argc, char* argv[])
 {
-    // 스마트 포인터는 객체이다.
+    // 스마트 포인터는 객체다.
     SmartPtr smPtr1(new AAA(1));
     SmartPtr smPtr2(new AAA(2));
     SmartPtr smPtr3(new AAA(3));
