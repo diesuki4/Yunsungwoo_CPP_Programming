@@ -32,7 +32,7 @@ public:
 
     // explicit Point(const Point& rhs) : x(rhs.x), y(rhs.y) { }
     // 
-    // explicit 키워드를 사용하면,
+    // explicit 키워드를 사용하면, base 는 Non-const 이기 때문에
     // Point p2 = base 는 묵시적 변환이 되지 않아, 사용할 수 없게 된다.
 
     // = 연산자 오버로딩이 없으면, 기본 값 복사가 삽입된다.
