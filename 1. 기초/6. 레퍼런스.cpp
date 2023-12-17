@@ -2,6 +2,10 @@
 
 using namespace std;
 
+// 레퍼런스도 실제로는 컴파일러에 의헤
+// 포인터로 번역되므로,
+//
+// 역참조 비용이 발생한다.
 int Add(const int& ref1, const int& ref2)
 {
     return ref1 + ref2;
