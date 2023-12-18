@@ -8,7 +8,7 @@ using namespace std;
 // 각 객체별로 자신의 클래스에 해당하는 VFTable 포인터를 갖게 된다.
 // 같은 타입의 객체는 동일한 VFTable 을 가리킨다.
 //
-// 함수의 호출은 VFTable 을 참조해 일어나게 된다.
+// 가상 함수의 호출은 VFTable 을 참조해 일어나게 된다.
 //
 // C 보다 성능상 단점이 있는 이유이다.
 
@@ -30,16 +30,15 @@ class Derived : public Base
 {
 public:
     // 오버라이드 한 부모의 가상 함수는 VFTable 에 존재하지 않는다.
-    // 이것이 가상 함수의 호출 원리이다.
+    // 이것이 가상 함수의 호출 원리다.
     // Base::Func1()
     virtual void Func1() { cout << "Derived::Func1()" << endl; }
-    // VFTable 이 존재하면,
-    // 가상 함수가 아닌 함수도 VFTable 에 올라가게 된다.
+    // Non-virtual 함수는 VFTable 에 올라가지 않는다.
+    // 컴파일 타임에 이미 무조건 이 함수를 쓸 것이라는 게 확정되었기 때문.
     void Func3()         { cout << "Derived::Func3()" << endl; }
 /*
     [0]  void Derived:Func1()  0x3072
     [1]  void Base:Func2()     0x2048
-    [2]  void Derived:Func3()  0x4096
 */
 };
 
@@ -52,7 +51,6 @@ class Descendant : public Derived
 /*
     [0]  void Derived:Func1()  0x3072
     [1]  void Base:Func2()     0x2048
-    [2]  void Derived:Func3()  0x4096
 */
 };
 
