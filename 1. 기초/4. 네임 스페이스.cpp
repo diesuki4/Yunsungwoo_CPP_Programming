@@ -3,21 +3,6 @@
 
 using namespace std;
 
-/*
- * C 의 typedef 는
- * 템플릿을 지원하지 않는다.
- * 
- * template <typename T>
- * typedef vector<T> vectorT;
-*/
-
-// C++ 의 using 은
-// 템플릿을 지원한다.
-template <typename T>
-using vectorT = vector<T>;
-
-vectorT<int> v;
-
 // ---------------------------------------------
 
 namespace BestComImpl
@@ -36,6 +21,8 @@ namespace ProgComImpl
 {
     void SimpleFunc(void);
 }
+
+// ---------------------------------------------
 
 void BestComImpl::SimpleFunc(void)
 {
@@ -79,6 +66,8 @@ void AAA::BBB::CCC::SimpleFunc(void)
     cout << "AAA::BBB::CCC::SimpleFunc" << endl;
 }
 
+// ---------------------------------------------
+
 int val = 100;
 
 int main(int argc, char* argv[])
@@ -90,7 +79,7 @@ int main(int argc, char* argv[])
     using AAA::BBB::SimpleFunc;
     SimpleFunc();
 
-    // namespace의 별칭은 namespace를 사용
+    // 네임스페이스의 별칭은 namespace 키워드를 사용
     namespace ABC = AAA::BBB::CCC;
     ABC::SimpleFunc();
 
