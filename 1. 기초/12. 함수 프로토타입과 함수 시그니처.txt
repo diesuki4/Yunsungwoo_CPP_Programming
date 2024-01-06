@@ -1,0 +1,9 @@
+// https://wg-cy.tistory.com/37
+ 
+double SomeWork(int num, string& s);
+
+함수 프로토타입 (반환 형과 매개변수 타입 목록)
+double(int, string&)
+
+함수 시그니처 (반환 형을 제외한 이름과 매개변수 타입 목록)
+SomeWork(int, string&)
