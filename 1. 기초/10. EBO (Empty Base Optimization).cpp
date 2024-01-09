@@ -12,6 +12,11 @@ using namespace std;
 
  * 이것을 상속 받은 클래스에서
  * 빈 부모 부분의 크기를 1 이 아닌 0 으로 최적화하는 기법이다.
+ *
+ * 단, 자식 클래스의 첫 번째 멤버가 그 타입(혹은 그의 자손) 이면
+ * EBO 는 동작하지 않는다.
+ *
+ * 객체의 부모 부분과, 멤버에서의 부모 부분을 구별할 수 있어야 하기 때문.
  */
 
 // TOTAL : 1 Byte
@@ -45,7 +50,7 @@ struct Derived1 : CompletelyEmpty  // EBO
 // TOTAL : 8 Bytes
 struct Derived2 : CompletelyEmpty  // 1 Byte
 {
-    CompletelyEmpty c;  // 1 Byte
+    CompletelyEmpty c;  // 1 Byte (CompletelyEmpty)
     // 2 Padding
     int i;  // 4 Bytes
 };
@@ -54,7 +59,7 @@ struct Derived2 : CompletelyEmpty  // 1 Byte
 struct Derived3 : CompletelyEmpty  // 1 Byte
 {
     // 3 Padding
-    Derived1 c;  // 4 Bytes
+    Derived1 c;  // 4 Bytes (Descendant of CompletelyEmpty)
     int i;  // 4 Bytes
 };
 
