@@ -1,6 +1,7 @@
 /*
  * https://stackoverflow.com/questions/18359780/how-is-dynamic-cast-implemented#answer-18360193
  * https://stackoverflow.com/questions/4644753/c-dynamic-cast-polymorphic-requirement-and-downcasting
+ * https://stackoverflow.com/questions/7687041/dynamic-cast-with-rtti-disabled
  */
 #include <iostream>
 #include <type_traits>
@@ -16,6 +17,8 @@ using namespace std;
  * 
  * 가상 함수 테이블을 통해 RTTI 정보를 얻을 수 있는
  * 다형적 클래스만 인자로 전달할 수 있는 것이다.
+ *
+ * RTTI 기능을 비활성화하면, 컴파일이 실패하거나 __non_rtti_object 런타임 예외가 발생할 수 있다.
  */
 
 class Mother

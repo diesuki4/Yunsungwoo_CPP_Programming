@@ -1,3 +1,6 @@
+/*
+ * https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file#answer-495056
+ */
 #include <iostream>
 #include "TemplateClass.h"
 // 컴파일은 파일 단위로 실행 된다.
